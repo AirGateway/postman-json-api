@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2956875f-eeed-49bc-8060-be9429a76b61",
+		"_postman_id": "51cb89ee-1352-4b78-9de6-cb65dda068b2",
 		"name": "JSON API - Full workflow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -82,11 +82,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -151,11 +149,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -252,11 +248,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -321,11 +315,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -390,11 +382,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -459,11 +449,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -552,11 +540,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -621,11 +607,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -722,11 +706,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -791,11 +773,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -860,11 +840,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopReprice",
+							"raw": "{{base_url}}/v1.1/OrderReshopReprice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -961,11 +939,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirDocIssue",
+							"raw": "{{base_url}}/v1.1/AirDocIssue",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1030,11 +1006,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1099,11 +1073,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1192,11 +1164,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1261,11 +1231,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1329,11 +1297,9 @@
 							"raw": "{\n  \"shoppingResponseID\": \"{{ShoppingResponseID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/SeatAvailability",
+							"raw": "{{base_url}}/v1.1/SeatAvailability",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1430,11 +1396,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1499,11 +1463,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1568,11 +1530,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1637,11 +1597,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1730,11 +1688,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1799,11 +1755,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1867,11 +1821,9 @@
 							"raw": "{\n  \"shoppingResponseID\": \"{{ShoppingResponseID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/ServiceList",
+							"raw": "{{base_url}}/v1.1/ServiceList",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -1968,11 +1920,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2037,11 +1987,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2106,11 +2054,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2175,11 +2121,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2268,11 +2212,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2337,11 +2279,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2438,11 +2378,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"seats\": {{selected_seats}},\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2507,11 +2445,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2580,11 +2516,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\",\n  \"passengers\": {{passengers_info_sa}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/SeatAvailability",
+							"raw": "{{base_url}}/v1.1/SeatAvailability",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2649,11 +2583,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"passengers\": {{passengers_info_sa}},\n    \"payment\": {{payment_info}},\n    \"services\": {{selected_seats}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderChange",
+							"raw": "{{base_url}}/v1.1/OrderChange",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2718,11 +2650,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2787,11 +2717,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2856,11 +2784,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -2949,11 +2875,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3018,11 +2942,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3119,11 +3041,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3188,11 +3108,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3257,11 +3175,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\",\n  \"passengers\": {{passengers_info_sa}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/ServiceList",
+							"raw": "{{base_url}}/v1.1/ServiceList",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3326,11 +3242,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"passengers\": {{passengers_info_sa}},\n    \"payment\": {{payment_info}},\n    \"services\": {{selected_services}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderChange",
+							"raw": "{{base_url}}/v1.1/OrderChange",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3395,11 +3309,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3464,11 +3376,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3533,11 +3443,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3646,11 +3554,9 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/AirShopping",
+							"raw": "{{base_url}}/v1.1/AirShopping",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3715,11 +3621,9 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OfferPrice",
+							"raw": "{{base_url}}/v1.1/OfferPrice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3816,11 +3720,9 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCreate",
+							"raw": "{{base_url}}/v1.1/OrderCreate",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3885,11 +3787,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -3954,11 +3854,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"originDestinations\": {{origin_destinations}}\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshop",
+							"raw": "{{base_url}}/v1.1/OrderReshop",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4023,11 +3921,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"offerID\": \"{{reshop_offer_id}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopReprice",
+							"raw": "{{base_url}}/v1.1/OrderReshopReprice",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4092,11 +3988,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"payment\": {{payment_info}},\n    \"reshopOfferID\": \"{{reshop_offer_id}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderChange",
+							"raw": "{{base_url}}/v1.1/OrderChange",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4161,11 +4055,9 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4230,11 +4122,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4299,11 +4189,9 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "https://proxy.airgateway.work/v1.1/OrderCancel",
+							"raw": "{{base_url}}/v1.1/OrderCancel",
 							"host": [
-								"proxy",
-								"airgateway",
-								"work"
+								"{{base_url}}"
 							],
 							"path": [
 								"v1.1",
@@ -4478,8 +4366,8 @@
 					"",
 					"const baseURLs = {",
 					"  \"local\": \"http://localhost:8080\",",
-					"  \"staging\": \"https://web.bookingpad.work\",",
-					"  \"sandbox\": \"https://web.bookingpad.net\"",
+					"  \"staging\": \"proxy.airgateway.work\",",
+					"  \"sandbox\": \"proxy.airgateway.net\"",
 					"};",
 					"",
 					"const statusPreOrder   = \"pre\";",
@@ -4594,8 +4482,8 @@
 					"  postman.setEnvironmentVariable(\"origin_destinations\", JSON.stringify(originDestinations));",
 					"}",
 					"function setBaseURL(){",
-					"\tvar urlHelper = postman.getEnvironmentVariable('base_url');",
-					"  postman.setEnvironmentVariable('base_url_json', baseURLs[urlHelper]);",
+					"\tvar urlHelper = postman.getEnvironmentVariable('base_url_helper');",
+					"  postman.setEnvironmentVariable('base_url', baseURLs[urlHelper]);",
 					"",
 					"  var auth = pm.globals.get(\"authorization-\" + urlHelper);",
 					"  if(!auth) {",
@@ -5265,7 +5153,7 @@
 					"            return [offer.offerID];",
 					"        }",
 					"    }",
-					"    return [offer.offerID]; //return the last one if this process doesn´t find any offer that match with operatingCarrier.",
+					"    return [offer.offerID]; //return the last one if this process doesnÂ´t find any offer that match with operatingCarrier.",
 					"}",
 					"function getOfferIDsFromFlightNumberList(offers, flightsToSearch){",
 					"    var offerIDs = [];",
@@ -5775,6 +5663,10 @@
 		{
 			"key": "passengers",
 			"value": "{\n    \"MAIN\":{\n        \"BA\": {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"12345678Z\",\n                \"documentType\": \"NI\",\n                \"expirationDate\": \"2020-12-21\",\n                \"issueDate\": \"2015-12-21\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1986-09-26\",\n                \"emailContact\": \"accept@accept.com\",\n                \"gender\": \"Male\",\n                \"middle\": \"HOLDER\",\n                \"nameGiven\": \"HOLDER\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"phone\": {\n                    \"areaCode\": \"\",\n                    \"countryCode\": \"34\",\n                    \"number\": \"666123123\"\n                },\n                \"address\": {\n                \"street\": \"TEST\",\n                \"postalCode\": \"TETS\",\n                \"countryCode\": \"GB\"\n                },\n                \"surname\": \"HOLDER\"\n            }\n        },\n        \"FLX\": {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"12345678Z\",\n                \"documentType\": \"NI\",\n                \"expirationDate\": \"2020-12-21\",\n                \"issueDate\": \"2015-12-21\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1986-09-26\",\n                \"emailContact\": \"accept@accept.com\",\n                \"gender\": \"Male\",\n                \"middle\": \"DOE\",\n                \"nameGiven\": \"JOHN\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"phone\": {\n                    \"areaCode\": \"\",\n                    \"countryCode\": \"34\",\n                    \"number\": \"666123123\"\n                },\n                \"address\": {\n                \"street\": \"TEST\",\n                \"postalCode\": \"TETS\",\n                \"countryCode\": \"GB\"\n                },\n                \"surname\": \"DOE\"\n            }\n        },\n        \"IB\": {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"12345678Z\",\n                \"documentType\": \"NI\",\n                \"expirationDate\": \"2020-12-21\",\n                \"issueDate\": \"2015-12-21\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1986-09-26\",\n                \"emailContact\": \"accept@accept.com\",\n                \"gender\": \"Male\",\n                \"middle\": \"Martinez\",\n                \"nameGiven\": \"Manuel\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"phone\": {\n                    \"areaCode\": \"\",\n                    \"countryCode\": \"34\",\n                    \"number\": \"666123123\"\n                },\n                \"address\": {\n                \"street\": \"TEST\",\n                \"postalCode\": \"TETS\",\n                \"countryCode\": \"GB\"\n                },\n                \"surname\": \"Martinez\"\n            }\n        },\n        \"S7\": {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"12345678Z\",\n                \"documentType\": \"NI\",\n                \"expirationDate\": \"2020-12-21\",\n                \"issueDate\": \"2015-12-21\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1986-09-26\",\n                \"emailContact\": \"JAVIER@BARDEM.com\",\n                \"gender\": \"Male\",\n                \"middle\": \"BARDEM\",\n                \"nameGiven\": \"JAVIER\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"phone\": {\n                    \"areaCode\": \"\",\n                    \"countryCode\": \"29\",\n                    \"number\": \"\"\n                },\n                \"address\": {\n                \"street\": \"TEST\",\n                \"postalCode\": \"TETS\",\n                \"countryCode\": \"GB\"\n                },\n                \"surname\": \"BARDEM\"\n            }\n        }\n    },\n    \"ADT\": [\n        {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"115233245A\",\n                \"documentType\": \"PP\",\n                \"expirationDate\": \"2018-02-19\",\n                \"issueDate\": \"2018-02-19\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1982-02-10\",\n                \"emailContact\": \"smith@airgateway.net\",\n                \"gender\": \"Female\",\n                \"middle\": \"Meyer\",\n                \"nameGiven\": \"John\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"surname\": \"Smith\"\n            }\n        },\n        {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"115233246A\",\n                \"documentType\": \"PP\",\n                \"expirationDate\": \"2018-02-19\",\n                \"issueDate\": \"2018-02-19\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"1983-02-10\",\n                \"emailContact\": \"smith@airgateway.net\",\n                \"gender\": \"Male\",\n                \"middle\": \"\",\n                \"nameGiven\": \"Mary\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"ADT\",\n                \"surname\": \"Jones\"\n            }\n        }\n    ],\n    \"CHD\": [\n        {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"115133246A\",\n                \"documentType\": \"PP\",\n                \"expirationDate\": \"2018-02-19\",\n                \"issueDate\": \"2018-02-19\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"2016-02-10\",\n                \"emailContact\": \"smith@airgateway.net\",\n                \"gender\": \"Male\",\n                \"middle\": \"\",\n                \"nameGiven\": \"Dorian\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"CHD\",\n                \"surname\": \"Cook\"\n            }\n        }\n    ],\n    \"INF\": [\n        {\n            \"document\": {\n                \"birthCountry\": \"Spain\",\n                \"documentID\": \"90422146S\",\n                \"documentType\": \"PP\",\n                \"expirationDate\": \"\",\n                \"issueDate\": \"\",\n                \"residenceCountry\": \"UK\"\n            },\n            \"passenger\": {\n                \"birthdate\": \"\",\n                \"emailContact\": \"smithjunior@airgateway.net\",\n                \"gender\": \"Male\",\n                \"middle\": \"\",\n                \"nameGiven\": \"Dorian\",\n                \"nameTitle\": \"MR\",\n                \"passengerType\": \"INF\",\n                \"surname\": \"Cook\"\n            }\n        }\n    ]\n}"
+		},
+		{
+			"key": "AG-Authorization",
+			"value": "2cdff71c36bd232f2b3d6838f6ca8ce1"
 		}
 	]
 }
