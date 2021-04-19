@@ -3540,7 +3540,7 @@
 							},
 							{
 								"key": "AG-Per-Provider-Limit",
-								"value": "20",
+								"value": "10",
 								"type": "text"
 							},
 							{
@@ -4222,6 +4222,1391 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "AS-OP-OC-AcceptDisruption-OCancel",
+			"item": [
+				{
+					"name": "AirShopping",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "AirShopping"
+							},
+							{
+								"key": "AG-Per-Provider-Limit",
+								"value": "20",
+								"type": "text"
+							},
+							{
+								"key": "AG-No-Cache",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/AirShopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"AirShopping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OfferPrice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OfferPrice"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OfferPrice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-App",
+								"value": " v1.0.0 (27d8c507)",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCreate",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": " application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "accept-encoding",
+								"value": " gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "accept-language",
+								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"AGW-9UCLXKANVV\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderChange Accept Disruption",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderChange"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"action\": \"accept_disruption\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderChange",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderChange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRefund",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderReshopRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderCancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AS-OP-OC-Split-OCancel",
+			"item": [
+				{
+					"name": "AirShopping",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "AirShopping"
+							},
+							{
+								"key": "AG-Per-Provider-Limit",
+								"value": "20",
+								"type": "text"
+							},
+							{
+								"key": "AG-No-Cache",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/AirShopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"AirShopping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OfferPrice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OfferPrice"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OfferPrice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-App",
+								"value": " v1.0.0 (27d8c507)",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCreate",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": " application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "accept-encoding",
+								"value": " gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "accept-language",
+								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderChange Split",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderChangeSplit"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"action\": \"split_order\",\n    \"passengers\": {{passengers_to_be_splited}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderChange",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderChange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve new Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderChangeSplit"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{new_AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRefund",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderReshopRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderCancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRefund new Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{new_AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderReshopRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCancel new Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{new_AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1.1",
+								"OrderCancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -4245,7 +5630,8 @@
 					"  \"AA\": \"FLX\",",
 					"  \"EK\": \"FLX\",",
 					"  \"LH\": \"FLX\",",
-					"  \"WS\": \"FLX\"",
+					"  \"WS\": \"FLX\",",
+					"  \"QF\": \"FLX\"",
 					"}",
 					"",
 					"// CASH AIRDOCISSUE EXAMPLE",
@@ -4346,7 +5732,7 @@
 					"      \"nameGiven\": \"Manuel\",",
 					"      \"phone\": {",
 					"          \"areaCode\": \"\",",
-					"          \"countryCode\": \"34\",",
+					"          \"countryCode\": \"+34\",",
 					"          \"number\": \"646666621\"",
 					"      },",
 					"      \"surname\": \"Martinez\",",
@@ -4439,6 +5825,7 @@
 					"",
 					"",
 					"",
+					"setBaseURL();",
 					"",
 					"/***********************************************/",
 					"/***********************************************/",
@@ -4449,7 +5836,6 @@
 					"/***********************************************/",
 					"function preAirShopping(){",
 					"  clearAllEnvironmentsVariables();",
-					"  setBaseURL();",
 					"  setPreAirShoppingStatus();",
 					"  setPreAirShoppingFlights();",
 					"  setSessionID();",
@@ -4483,6 +5869,9 @@
 					"}",
 					"function setBaseURL(){",
 					"\tvar urlHelper = postman.getEnvironmentVariable('base_url_helper');",
+					"    console.log(\"urlHelper: \" + urlHelper)",
+					"    console.log(\"baseURLs: \", baseURLs)",
+					"    console.log(\"baseURLs[urlHelper]: \" + baseURLs[urlHelper])",
 					"  postman.setEnvironmentVariable('base_url', baseURLs[urlHelper]);",
 					"",
 					"  var auth = pm.globals.get(\"authorization-\" + urlHelper);",
@@ -4573,23 +5962,25 @@
 					"  for(var i=0; i<passengersType.length; i++){",
 					"    var passType = passengersType[i];",
 					"    var paxQuantity = (postman.getEnvironmentVariable(\"quantity_\" + passType)*1);",
-					"    if(paxQuantity > 0 &&passType != inf) {",
+					"    if(paxQuantity > 0) {",
 					"        var seatsPaxType = getSeatsPaxType(seats, paxQuantity, passType)",
 					"        for(var j=0; j<paxQuantity; j++){",
 					"            var pax = getPassenger(passType, passIndex)",
-					"            pax.seats = []",
-					"            if(seatsPaxType[j]) {",
-					"                for(sp in seatsPaxType[j]) {",
-					"                    if(seatsPaxType[j][sp].segment) {",
-					"                      pax.seats.push({",
-					"                        \"segment\": seatsPaxType[j][sp].segment,",
-					"                        \"location\": seatsPaxType[j][sp].location",
-					"                      })",
+					"            if (passType != inf) {",
+					"                pax.seats = []",
+					"                if(seatsPaxType[j]) {",
+					"                    for(sp in seatsPaxType[j]) {",
+					"                        if(seatsPaxType[j][sp].segment) {",
+					"                        pax.seats.push({",
+					"                            \"segment\": seatsPaxType[j][sp].segment,",
+					"                            \"location\": seatsPaxType[j][sp].location",
+					"                        })",
+					"                        }",
 					"                    }",
 					"                }",
-					"            }",
-					"            if(services[passIndex]) {",
-					"              pax.services = services[passIndex]",
+					"                if(services[passIndex]) {",
+					"                pax.services = services[passIndex]",
+					"                }",
 					"            }",
 					"            passengers.push(pax);",
 					"            passIndex++",
@@ -4661,7 +6052,7 @@
 					"    passenger.passenger.emailContact = \"accept@accept.com\"",
 					"    passenger.passenger.phone = {",
 					"      \"areaCode\": \"\",",
-					"      \"countryCode\": \"34\",",
+					"      \"countryCode\": \"+34\",",
 					"      \"number\": \"666123123\"",
 					"    }",
 					"    passenger.passenger.address = {",
@@ -4950,6 +6341,25 @@
 					"            \"serial_number\": \"123\"",
 					"        }",
 					"    },",
+					"    \"QF\": {",
+					"        \"flow\": {",
+					"            \"dflt\":{",
+					"                \"OfferPrice\": true,",
+					"                \"preSeatAvailability\": true,",
+					"                \"OrderCreate\": true,",
+					"                \"AirDocIssue\": true,",
+					"                \"OrderRetrieve\": true,",
+					"                \"postSeatAvailability\": true,",
+					"                \"OrderChangeSeat\": true,",
+					"                \"OrdeCancel\": true",
+					"            }",
+					"        },",
+					"        \"serviceSSR\": true,",
+					"        \"payment_data\": {",
+					"            \"card_number\": \"4005550000000001\",",
+					"            \"serial_number\": \"123\"",
+					"        }",
+					"    },",
 					"    \"WS\": {",
 					"        \"flow\": {",
 					"            \"dflt\":{",
@@ -5022,6 +6432,8 @@
 					"    testOrderReshop();",
 					"}else if(request.headers[\"ndc-method\"] == \"OrderReshopReprice\"){",
 					"    testOrderReshopReprice();",
+					"}else if(request.headers[\"ndc-method\"] == \"OrderChangeSplit\"){",
+					"    checkOrderChangeSplit();",
 					"}else if(request.headers[\"ndc-method\"] == \"OrderCancel\"){",
 					"    checkStatus();",
 					"}",
@@ -5051,9 +6463,11 @@
 					"    pm.test(\"Check 'RequestID' header is returned\", function () {",
 					"        pm.expect(pm.response.headers.get(\"Ag-Request-Id\"));",
 					"    });",
-					"    pm.test(\"Check 'SessionID' is the expected\", function () {",
-					"        pm.expect(pm.response.headers.get(\"Ag-Session-Id\") == pm.environment.get(\"AG-Session-ID\"));",
-					"    });",
+					"    if(matchSession) {",
+					"        pm.test(\"Check 'SessionID' is the expected\", function () {",
+					"            pm.expect(pm.response.headers.get(\"Ag-Session-Id\") == pm.environment.get(\"AG-Session-ID\"));",
+					"        });",
+					"    }",
 					"}",
 					"function checkStatus(){",
 					"    pm.test(\"Status code is 200\", function () {",
@@ -5087,7 +6501,7 @@
 					"}",
 					"function checkAirShopping(res){",
 					"",
-					"    checkTracerIDs();",
+					"    checkTracerIDs(true);",
 					"    checkStatus();",
 					"",
 					"    // Check response is correct and set AGProvider and AGOfferID environment variables",
@@ -5220,7 +6634,6 @@
 					"",
 					"",
 					"",
-					"",
 					"/***********************************************/",
 					"/***********************************************/",
 					"/***********************************************/",
@@ -5234,11 +6647,11 @@
 					"/***********************************************/",
 					"function testOrderView(){",
 					"    res = pm.response.json();",
-					"    checkOrderView(res);",
+					"    checkOrderView(res, true);",
 					"    setOrderViewVariables(res);",
 					"}",
-					"function checkOrderView(res){",
-					"    checkTracerIDs();",
+					"function checkOrderView(res, matchsession){",
+					"    checkTracerIDs(matchsession);",
 					"    checkStatus();",
 					"",
 					"    pm.test(\"Check 'orderID' key exists\", function () {",
@@ -5261,6 +6674,8 @@
 					"    postman.setEnvironmentVariable(\"order_status\", \"post\");",
 					"    setOVPassengers(res.passengers);",
 					"    setOVPassengersRefs(res.passengers);",
+					"    setOVPassengersRefsSplit(res.passengers);",
+					"",
 					"    serOriginDestinationReshop();",
 					"    ",
 					"    var passengers = [];",
@@ -5276,7 +6691,7 @@
 					"function setOVPassengers(passengers){",
 					"    var ps = \"[\";",
 					"    for(var i=0; i<passengers.length; i++){",
-					"        p = passengers[i];",
+					"        var p = passengers[i]",
 					"        ps += '{\\",
 					"            \"passenger\": {\\",
 					"                \"birthdate\": \"' + p.passenger.birthdate + '\",\\",
@@ -5311,6 +6726,50 @@
 					"    postman.setEnvironmentVariable(\"passengers_refs_sa\", JSON.stringify(ps));",
 					"}",
 					"",
+					"function getFirstAdultWithInfant(passengers){",
+					"    for(var i=0; i<passengers.length; i++){",
+					"        if (passengers[i].infantReference != \"\") {",
+					"            return passengers[i];",
+					"        }",
+					"    }",
+					"    return null;",
+					"}",
+					"",
+					"function getFirstPassengerOfType(passengers, passType){",
+					"    for(var i=0; i<passengers.length; i++){",
+					"        if (passengers[i].passenger.passengerType == passType) {",
+					"            return passengers[i];",
+					"        }",
+					"    }",
+					"    return null;",
+					"}",
+					"",
+					"function setOVPassengersRefsSplit(passengers){",
+					"    var ps = [];",
+					"    var fawi = getFirstAdultWithInfant(passengers);",
+					"    if (fawi != null) {",
+					"        let inf = {\"travelerReference\": fawi.travelerReference,};",
+					"        let adt = {\"travelerReference\": fawi.infantReference,};",
+					"        ps.push(adt);",
+					"        ps.push(inf);",
+					"    } else {",
+					"        let firstAdult = getFirstPassengerOfType(passengers, \"ADT\");",
+					"        if (firstAdult == null) console.log(\"No adults found!?\")",
+					"        let p = {\"travelerReference\": firstAdult.travelerReference,};",
+					"        ps.push(p);",
+					"    }",
+					"    // In any of both cases, the split flight will have an adult. Let's look for a child too.",
+					"    ",
+					"    let firstChild = getFirstPassengerOfType(passengers, \"CHD\")",
+					"    if (firstChild != null) {",
+					"        let p = {\"travelerReference\": firstChild.travelerReference,};",
+					"        ps.push(p);",
+					"    }",
+					"",
+					"    //console.log(ps)",
+					"    postman.setEnvironmentVariable(\"passengers_to_be_splited\", JSON.stringify(ps));",
+					"}",
+					"",
 					"function serOriginDestinationReshop(dayModifier){",
 					"    dayModifier = dayModifier || 5",
 					"    const initDays  = (postman.getEnvironmentVariable(\"init_days\")*1 || 35) + dayModifier;",
@@ -5329,6 +6788,34 @@
 					"    }",
 					"    postman.setEnvironmentVariable(\"origin_destinations\", JSON.stringify(originDestinations));",
 					"}",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********ORDERCHANGE SPLIT TEST**************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"/***********************************************/",
+					"function checkOrderChangeSplit(){",
+					"    res = pm.response.json();",
+					"    checkOrderView(res, false);",
+					"    setOrderViewSplitVariables(res);",
+					"}",
+					"function setOrderViewSplitVariables(res){",
+					"    postman.setEnvironmentVariable(\"new_AGW_ID\", res.id);",
+					"}",
+					"",
 					"",
 					"",
 					"",
@@ -5372,7 +6859,7 @@
 					"    }",
 					"}",
 					"function checkSeatAvailability(res){",
-					"    checkTracerIDs();",
+					"    checkTracerIDs(true);",
 					"    checkStatus();",
 					"}",
 					"function setTheSeatsForOC(res){",
@@ -5507,7 +6994,7 @@
 					"    }",
 					"}",
 					"function checkServiceList(res){",
-					"    checkTracerIDs();",
+					"    checkTracerIDs(true);",
 					"    checkStatus();",
 					"}",
 					"function setTheServicesForOC(res){",
@@ -5666,7 +7153,15 @@
 		},
 		{
 			"key": "AG-Authorization",
-			"value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+			"value": "2cdff71c36bd232f2b3d6838f6ca8ce1"
+		},
+		{
+			"key": "authorization-local",
+			"value": "b7ac4be9e48e83ae34c7bf1dc2fbd5fb"
+		},
+		{
+			"key": "authorization-staging",
+			"value": "2cdff71c36bd232f2b3d6838f6ca8ce1"
 		}
 	]
 }
