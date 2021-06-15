@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "51cb89ee-1352-4b78-9de6-cb65dda068b2",
-		"name": "JSON API - Full workflow",
+		"_postman_id": "4d3846c8-aacc-4dfd-8563-96b83af36a2e",
+		"name": "API v1.2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -82,12 +82,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -149,12 +149,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -241,6 +241,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -248,12 +253,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -315,12 +320,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -382,12 +387,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -449,12 +454,475 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
+								"OrderCancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AS-OP-OC (cash)-OCancel",
+			"item": [
+				{
+					"name": "AirShopping",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "AirShopping"
+							},
+							{
+								"key": "AG-Per-Provider-Limit",
+								"value": "20",
+								"type": "text"
+							},
+							{
+								"key": "AG-No-Cache",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"AirShopping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OfferPrice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OfferPrice"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OfferPrice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-App",
+								"value": " v1.0.0 (27d8c507)",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCreate",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": " application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "accept-encoding",
+								"value": " gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "accept-language",
+								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "cash",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRefund",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderReshopRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -540,12 +1008,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -607,12 +1075,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -699,6 +1167,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -706,12 +1179,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -773,12 +1246,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -840,12 +1313,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopReprice",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopReprice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopReprice"
 							]
 						}
@@ -932,6 +1405,11 @@
 								"key": "accept-language",
 								"type": "text",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -939,12 +1417,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirDocIssue",
+							"raw": "{{base_url}}/{{version_url}}/AirDocIssue",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirDocIssue"
 							]
 						}
@@ -1006,12 +1484,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -1073,12 +1551,646 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
+								"OrderCancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AS-OP-OC-ADI (cash)-OCancel",
+			"item": [
+				{
+					"name": "AirShopping",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "AirShopping"
+							},
+							{
+								"key": "AG-Per-Provider-Limit",
+								"value": "20",
+								"type": "text"
+							},
+							{
+								"key": "AG-No-Cache",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"AirShopping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OfferPrice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OfferPrice"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OfferPrice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-App",
+								"value": " v1.0.0 (27d8c507)",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCreate",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": " application/json, text/plain, */*",
+								"type": "text"
+							},
+							{
+								"key": "accept-encoding",
+								"value": " gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "accept-language",
+								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
+								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "cash",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderRetrieve"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderRetrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRepriceOnly",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderReshopReprice"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopReprice",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderReshopReprice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AirDocIssue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"type": "text",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"type": "text",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"type": "text",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"type": "text",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "AG-App",
+								"type": "text",
+								"value": " v1.0.0 (27d8c507)"
+							},
+							{
+								"key": "NDC-Method",
+								"type": "text",
+								"value": "AirDocIssue"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": " application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": " gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "cash",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"payment\": {{payment_info}}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/AirDocIssue",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"AirDocIssue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderReshopRefund",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"type": "text",
+								"value": "{{AG-Consumer}}"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"OrderReshopRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderCancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "{{AG-Provider}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}"
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}"
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}"
+							},
+							{
+								"key": "NDC-Method",
+								"value": "OrderCancel"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -1164,12 +2276,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -1231,12 +2343,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -1297,12 +2409,12 @@
 							"raw": "{\n  \"shoppingResponseID\": \"{{ShoppingResponseID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/SeatAvailability",
+							"raw": "{{base_url}}/{{version_url}}/SeatAvailability",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"SeatAvailability"
 							]
 						}
@@ -1389,6 +2501,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1396,12 +2513,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -1463,12 +2580,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -1530,12 +2647,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -1597,12 +2714,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -1688,12 +2805,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -1755,12 +2872,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -1821,12 +2938,12 @@
 							"raw": "{\n  \"shoppingResponseID\": \"{{ShoppingResponseID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/ServiceList",
+							"raw": "{{base_url}}/{{version_url}}/ServiceList",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"ServiceList"
 							]
 						}
@@ -1913,6 +3030,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1920,12 +3042,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -1987,12 +3109,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -2054,12 +3176,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -2121,12 +3243,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -2212,12 +3334,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -2279,12 +3401,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -2371,6 +3493,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -2378,12 +3505,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"seats\": {{selected_seats}},\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -2445,12 +3572,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -2516,12 +3643,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\",\n  \"passengers\": {{passengers_info_sa}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/SeatAvailability",
+							"raw": "{{base_url}}/{{version_url}}/SeatAvailability",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"SeatAvailability"
 							]
 						}
@@ -2583,12 +3710,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"passengers\": {{passengers_info_sa}},\n    \"payment\": {{payment_info}},\n    \"services\": {{selected_seats}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderChange",
+							"raw": "{{base_url}}/{{version_url}}/OrderChange",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderChange"
 							]
 						}
@@ -2650,12 +3777,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -2717,12 +3844,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -2784,12 +3911,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -2875,12 +4002,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -2942,12 +4069,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -3034,6 +4161,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -3041,12 +4173,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -3108,12 +4240,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -3175,12 +4307,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\",\n  \"passengers\": {{passengers_info_sa}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/ServiceList",
+							"raw": "{{base_url}}/{{version_url}}/ServiceList",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"ServiceList"
 							]
 						}
@@ -3242,12 +4374,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"passengers\": {{passengers_info_sa}},\n    \"payment\": {{payment_info}},\n    \"services\": {{selected_services}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderChange",
+							"raw": "{{base_url}}/{{version_url}}/OrderChange",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderChange"
 							]
 						}
@@ -3309,12 +4441,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -3376,12 +4508,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -3443,12 +4575,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -3554,12 +4686,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -3621,12 +4753,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -3713,6 +4845,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -3720,12 +4857,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -3787,12 +4924,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -3854,12 +4991,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"originDestinations\": {{origin_destinations}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshop",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshop",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshop"
 							]
 						}
@@ -3921,12 +5058,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"offerID\": \"{{reshop_offer_id}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopReprice",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopReprice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopReprice"
 							]
 						}
@@ -3988,12 +5125,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"payment\": {{payment_info}},\n    \"reshopOfferID\": \"{{reshop_offer_id}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderChange",
+							"raw": "{{base_url}}/{{version_url}}/OrderChange",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderChange"
 							]
 						}
@@ -4055,12 +5192,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -4122,12 +5259,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -4189,12 +5326,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -4300,12 +5437,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -4367,12 +5504,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -4459,6 +5596,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -4466,12 +5608,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -4533,12 +5675,12 @@
 							"raw": "{\n    \"id\": \"AGW-9UCLXKANVV\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -4600,12 +5742,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"action\": \"accept_disruption\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderChange",
+							"raw": "{{base_url}}/{{version_url}}/OrderChange",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderChange"
 							]
 						}
@@ -4667,12 +5809,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -4734,12 +5876,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -4801,12 +5943,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -4892,12 +6034,12 @@
 							"raw": "{\n  \"postman_help\": {\n    \"method\": \"AirShopping\",\n    \"type\": \"simple_flight\"\n  }, \n  \"metadata\": {\n    \"country\": \"DE\",\n    \"currency\": \"EUR\",\n    \"locale\": \"de_DE\"\n  },\n  \"originDestinations\": {{origin_destinations}},\n  \"preferences\": {\n    \"cabin\": [\"7\"],\n    \"nonStop\": false\n  },\n  \"travelers\": {\n    \"adt\": {{quantity_ADT}},\n    \"chd\": {{quantity_CHD}},\n    \"inf\": {{quantity_INF}}\n  }\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/AirShopping",
+							"raw": "{{base_url}}/{{version_url}}/AirShopping",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"AirShopping"
 							]
 						}
@@ -4959,12 +6101,12 @@
 							"raw": "{\n  \"offerIDs\": {{AG-OfferIDS}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OfferPrice",
+							"raw": "{{base_url}}/{{version_url}}/OfferPrice",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OfferPrice"
 							]
 						}
@@ -5051,6 +6193,11 @@
 								"key": "accept-language",
 								"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
 								"type": "text"
+							},
+							{
+								"key": "NDC-Payment-Method",
+								"value": "card",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -5058,12 +6205,12 @@
 							"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"payment\": {{payment_info}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCreate",
+							"raw": "{{base_url}}/{{version_url}}/OrderCreate",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCreate"
 							]
 						}
@@ -5125,12 +6272,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -5192,12 +6339,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"action\": \"split_order\",\n    \"passengers\": {{passengers_to_be_splited}}\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderChange",
+							"raw": "{{base_url}}/{{version_url}}/OrderChange",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderChange"
 							]
 						}
@@ -5259,12 +6406,12 @@
 							"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -5326,12 +6473,12 @@
 							"raw": "{\n  \"id\": \"{{new_AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderRetrieve",
+							"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderRetrieve"
 							]
 						}
@@ -5393,12 +6540,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -5460,12 +6607,12 @@
 							"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -5527,12 +6674,12 @@
 							"raw": "{\n    \"id\": \"{{new_AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderReshopRefund",
+							"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderReshopRefund"
 							]
 						}
@@ -5594,12 +6741,12 @@
 							"raw": "{\n    \"id\": \"{{new_AGW_ID}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/v1.1/OrderCancel",
+							"raw": "{{base_url}}/{{version_url}}/OrderCancel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"v1.1",
+								"{{version_url}}",
 								"OrderCancel"
 							]
 						}
@@ -5630,8 +6777,7 @@
 					"  \"AA\": \"FLX\",",
 					"  \"EK\": \"FLX\",",
 					"  \"LH\": \"FLX\",",
-					"  \"WS\": \"FLX\",",
-					"  \"QF\": \"FLX\"",
+					"  \"WS\": \"FLX\"",
 					"}",
 					"",
 					"// CASH AIRDOCISSUE EXAMPLE",
@@ -5676,11 +6822,7 @@
 					"      \"surname\": \"HOLDER\",",
 					"      \"nameTitle\": \"MR\",",
 					"      \"emailContact\": \"accept@accept.com\",",
-					"      \"phone\": {",
-					"          \"areaCode\": \"\",",
-					"          \"countryCode\": \"34\",",
-					"          \"number\": \"646666621\"",
-					"      }",
+					"      \"phone\": \"+34646666621\"",
 					"  },",
 					"  \"FLX\": {",
 					"      \"method\": \"card\",",
@@ -5704,11 +6846,7 @@
 					"      \"surname\": \"Martinez\",",
 					"      \"nameTitle\": \"MR\",",
 					"      \"emailContact\": \"accept@accept.com\",",
-					"      \"phone\": {",
-					"          \"areaCode\": \"\",",
-					"          \"countryCode\": \"34\",",
-					"          \"number\": \"646666621\"",
-					"      }",
+					"      \"phone\": \"+34646666621\"",
 					"  },",
 					"  \"IB\": {",
 					"      \"method\": \"card\",",
@@ -5730,11 +6868,7 @@
 					"      \"cardHolderEmail\": \"accept@accept.com\",",
 					"      \"emailContact\": \"accept@accept.com\",",
 					"      \"nameGiven\": \"Manuel\",",
-					"      \"phone\": {",
-					"          \"areaCode\": \"\",",
-					"          \"countryCode\": \"+34\",",
-					"          \"number\": \"646666621\"",
-					"      },",
+					"      \"phone\": \"+34646666621\",",
 					"      \"surname\": \"Martinez\",",
 					"      \"nameTitle\": \"MR\"",
 					"  }",
@@ -5825,7 +6959,6 @@
 					"",
 					"",
 					"",
-					"setBaseURL();",
 					"",
 					"/***********************************************/",
 					"/***********************************************/",
@@ -5836,6 +6969,7 @@
 					"/***********************************************/",
 					"function preAirShopping(){",
 					"  clearAllEnvironmentsVariables();",
+					"  setBaseURL();",
 					"  setPreAirShoppingStatus();",
 					"  setPreAirShoppingFlights();",
 					"  setSessionID();",
@@ -5868,13 +7002,13 @@
 					"  postman.setEnvironmentVariable(\"origin_destinations\", JSON.stringify(originDestinations));",
 					"}",
 					"function setBaseURL(){",
-					"\tvar urlHelper = postman.getEnvironmentVariable('base_url_helper');",
-					"    console.log(\"urlHelper: \" + urlHelper)",
-					"    console.log(\"baseURLs: \", baseURLs)",
-					"    console.log(\"baseURLs[urlHelper]: \" + baseURLs[urlHelper])",
+					"\tvar urlHelper = pm.collectionVariables.get('base_url_helper');",
+					"\tif(!urlHelper){",
+					"    urlHelper = postman.getEnvironmentVariable('base_url_helper');",
+					"  }",
 					"  postman.setEnvironmentVariable('base_url', baseURLs[urlHelper]);",
 					"",
-					"  var auth = pm.globals.get(\"authorization-\" + urlHelper);",
+					"  var auth = pm.collectionVariables.get(\"authorization-\" + urlHelper);",
 					"  if(!auth) {",
 					"    auth = pm.globals.get(\"authorization\");",
 					"  }",
@@ -5962,25 +7096,23 @@
 					"  for(var i=0; i<passengersType.length; i++){",
 					"    var passType = passengersType[i];",
 					"    var paxQuantity = (postman.getEnvironmentVariable(\"quantity_\" + passType)*1);",
-					"    if(paxQuantity > 0) {",
+					"    if(paxQuantity > 0){",
 					"        var seatsPaxType = getSeatsPaxType(seats, paxQuantity, passType)",
 					"        for(var j=0; j<paxQuantity; j++){",
 					"            var pax = getPassenger(passType, passIndex)",
-					"            if (passType != inf) {",
-					"                pax.seats = []",
-					"                if(seatsPaxType[j]) {",
-					"                    for(sp in seatsPaxType[j]) {",
-					"                        if(seatsPaxType[j][sp].segment) {",
-					"                        pax.seats.push({",
-					"                            \"segment\": seatsPaxType[j][sp].segment,",
-					"                            \"location\": seatsPaxType[j][sp].location",
-					"                        })",
-					"                        }",
+					"            pax.seats = []",
+					"            if(seatsPaxType[j]) {",
+					"                for(sp in seatsPaxType[j]) {",
+					"                    if(seatsPaxType[j][sp].segment) {",
+					"                      pax.seats.push({",
+					"                        \"segment\": seatsPaxType[j][sp].segment,",
+					"                        \"location\": seatsPaxType[j][sp].location",
+					"                      })",
 					"                    }",
 					"                }",
-					"                if(services[passIndex]) {",
-					"                pax.services = services[passIndex]",
-					"                }",
+					"            }",
+					"            if(services[passIndex]) {",
+					"              pax.services = services[passIndex]",
 					"            }",
 					"            passengers.push(pax);",
 					"            passIndex++",
@@ -6032,7 +7164,7 @@
 					"        \"expirationDate\": getRandomDate()",
 					"        // \"residenceCountry\": country",
 					"    },",
-					"    \"passenger\": {",
+					"    \"data\": {",
 					"        \"birthdate\": getBirthDate(passType),",
 					"\t\t\t\t// \"fqtvInfo\": {",
 					"\t\t\t\t// \t\"account\": {",
@@ -6041,21 +7173,17 @@
 					"\t\t\t\t// \t\"airlineID\": \"IB\"",
 					"\t\t\t\t// },",
 					"        \"gender\": gender,",
-					"        \"middle\": getSureName(),",
-					"        \"nameGiven\": getSureName(),",
-					"        \"nameTitle\": titleMap[gender],",
-					"        \"passengerType\": passType,",
+					"        // \"middle\": getSureName(),",
+					"        \"name\": getSureName(),",
+					"        // \"title\": titleMap[gender],",
 					"        \"surname\": \"HOLDER\"",
-					"    }",
+					"      },",
+					"    \"passengerType\": passType",
 					"  } ",
 					"  if(index == 0){",
-					"    passenger.passenger.emailContact = \"accept@accept.com\"",
-					"    passenger.passenger.phone = {",
-					"      \"areaCode\": \"\",",
-					"      \"countryCode\": \"+34\",",
-					"      \"number\": \"666123123\"",
-					"    }",
-					"    passenger.passenger.address = {",
+					"    passenger.data.email = \"accept@accept.com\"",
+					"    passenger.data.phone = \"+34666123123\"",
+					"    passenger.data.address = {",
 					"      \"cityName\": \"Saint-Petersburg\",",
 					"      \"countryCode\": \"RU\",",
 					"      \"postalCode\": \"197373\",",
@@ -6341,25 +7469,6 @@
 					"            \"serial_number\": \"123\"",
 					"        }",
 					"    },",
-					"    \"QF\": {",
-					"        \"flow\": {",
-					"            \"dflt\":{",
-					"                \"OfferPrice\": true,",
-					"                \"preSeatAvailability\": true,",
-					"                \"OrderCreate\": true,",
-					"                \"AirDocIssue\": true,",
-					"                \"OrderRetrieve\": true,",
-					"                \"postSeatAvailability\": true,",
-					"                \"OrderChangeSeat\": true,",
-					"                \"OrdeCancel\": true",
-					"            }",
-					"        },",
-					"        \"serviceSSR\": true,",
-					"        \"payment_data\": {",
-					"            \"card_number\": \"4005550000000001\",",
-					"            \"serial_number\": \"123\"",
-					"        }",
-					"    },",
 					"    \"WS\": {",
 					"        \"flow\": {",
 					"            \"dflt\":{",
@@ -6432,8 +7541,6 @@
 					"    testOrderReshop();",
 					"}else if(request.headers[\"ndc-method\"] == \"OrderReshopReprice\"){",
 					"    testOrderReshopReprice();",
-					"}else if(request.headers[\"ndc-method\"] == \"OrderChangeSplit\"){",
-					"    checkOrderChangeSplit();",
 					"}else if(request.headers[\"ndc-method\"] == \"OrderCancel\"){",
 					"    checkStatus();",
 					"}",
@@ -6463,11 +7570,9 @@
 					"    pm.test(\"Check 'RequestID' header is returned\", function () {",
 					"        pm.expect(pm.response.headers.get(\"Ag-Request-Id\"));",
 					"    });",
-					"    if(matchSession) {",
-					"        pm.test(\"Check 'SessionID' is the expected\", function () {",
-					"            pm.expect(pm.response.headers.get(\"Ag-Session-Id\") == pm.environment.get(\"AG-Session-ID\"));",
-					"        });",
-					"    }",
+					"    pm.test(\"Check 'SessionID' is the expected\", function () {",
+					"        pm.expect(pm.response.headers.get(\"Ag-Session-Id\") == pm.environment.get(\"AG-Session-ID\"));",
+					"    });",
 					"}",
 					"function checkStatus(){",
 					"    pm.test(\"Status code is 200\", function () {",
@@ -6501,7 +7606,7 @@
 					"}",
 					"function checkAirShopping(res){",
 					"",
-					"    checkTracerIDs(true);",
+					"    checkTracerIDs();",
 					"    checkStatus();",
 					"",
 					"    // Check response is correct and set AGProvider and AGOfferID environment variables",
@@ -6535,13 +7640,7 @@
 					"    }",
 					"    console.log(\"SELECTED OFFERS:\");",
 					"    console.log(offerIDs);",
-					"    _offerIDs = \"[\";",
-					"    for(var i=0; i<offerIDs.length; i++){",
-					"        _offerIDs += '\"' + offerIDs[i] + '\",';",
-					"    }",
-					"    _offerIDs = _offerIDs.slice(0, -1);",
-					"    _offerIDs += \"]\";",
-					"    postman.setEnvironmentVariable(\"AG-OfferIDS\", _offerIDs);",
+					"    postman.setEnvironmentVariable(\"AG-OfferIDS\", JSON.stringify(offerIDs));",
 					"}",
 					"function getOfferIDsByOperatingCarrier(offers, operatingCarrier, classOfService, noCodeShare){",
 					"    var offer;",
@@ -6551,9 +7650,9 @@
 					"        var countSegmentsMatch = 0;",
 					"        for(var j=0; j<offer.flights.length; j++){",
 					"            var flight = offer.flights[j];",
-					"            for(var k=0; k<flight.flightSegments.length; k++){",
-					"                segment = flight.flightSegments[k];",
-					"                if((!classOfService || classOfService.indexOf(segment.flightDetail.classOfService.code) != -1) && (!operatingCarrier || segment.operatingCarrier.airlineID == operatingCarrier)){",
+					"            for(var k=0; k<flight.segments.length; k++){",
+					"                segment = flight.segments[k];",
+					"                if((!classOfService || classOfService.indexOf(segment.detail.classOfService.code) != -1) && (!operatingCarrier || segment.operatingCarrier.airlineID == operatingCarrier)){",
 					"                    if(noCodeShare){",
 					"                        countSegmentsMatch++;",
 					"                    }else {",
@@ -6567,7 +7666,7 @@
 					"            return [offer.offerID];",
 					"        }",
 					"    }",
-					"    return [offer.offerID]; //return the last one if this process doesnÂ´t find any offer that match with operatingCarrier.",
+					"    return [offer.offerID]; //return the last one if this process doesn´t find any offer that match with operatingCarrier.",
 					"}",
 					"function getOfferIDsFromFlightNumberList(offers, flightsToSearch){",
 					"    var offerIDs = [];",
@@ -6576,8 +7675,8 @@
 					"        offer = offers[i];",
 					"        for(var j=0; j<offer.flights.length; j++){",
 					"            var flight = offer.flights[j];",
-					"            for(var k=0; k<flight.flightSegments.length; k++){",
-					"                flightSegment = flight.flightSegments[k];",
+					"            for(var k=0; k<flight.segments.length; k++){",
+					"                flightSegment = flight.segments[k];",
 					"                if(flightsToSearch.indexOf(flightSegment.marketingCarrier.flightNumber)!=-1 && offerIDs.indexOf(offer.offerID) === -1){",
 					"                    offerIDs.push(offer.offerID);",
 					"                    flightsToSearch.splice(flightsToSearch.indexOf(flightSegment.marketingCarrier.flightNumber), 1);",
@@ -6634,6 +7733,7 @@
 					"",
 					"",
 					"",
+					"",
 					"/***********************************************/",
 					"/***********************************************/",
 					"/***********************************************/",
@@ -6647,11 +7747,11 @@
 					"/***********************************************/",
 					"function testOrderView(){",
 					"    res = pm.response.json();",
-					"    checkOrderView(res, true);",
+					"    checkOrderView(res);",
 					"    setOrderViewVariables(res);",
 					"}",
-					"function checkOrderView(res, matchsession){",
-					"    checkTracerIDs(matchsession);",
+					"function checkOrderView(res){",
+					"    checkTracerIDs();",
 					"    checkStatus();",
 					"",
 					"    pm.test(\"Check 'orderID' key exists\", function () {",
@@ -6674,52 +7774,32 @@
 					"    postman.setEnvironmentVariable(\"order_status\", \"post\");",
 					"    setOVPassengers(res.passengers);",
 					"    setOVPassengersRefs(res.passengers);",
-					"    setOVPassengersRefsSplit(res.passengers);",
-					"",
 					"    serOriginDestinationReshop();",
 					"    ",
-					"    var passengers = [];",
-					"    for(var i=0; i<res.passengers.length; i++){",
-					"        passenger = res.passengers[i];",
-					"        passengers.push({",
-					"            \"passenger\": passenger.passenger,",
-					"            \"travelerReference\": passenger.travelerReference",
-					"        });",
-					"    } ",
-					"    postman.setEnvironmentVariable(\"Passengers_SL\", JSON.stringify(passengers));",
+					"    // var passengers = [];",
+					"    // for(var i=0; i<res.passengers.length; i++){",
+					"    //     passenger = res.passengers[i];",
+					"    //     passengers.push({",
+					"    //         \"passenger\": passenger.passenger,",
+					"    //         \"travelerReference\": passenger.travelerReference",
+					"    //     });",
+					"    // } ",
+					"    // postman.setEnvironmentVariable(\"Passengers_SL\", JSON.stringify(passengers));",
 					"}",
 					"function setOVPassengers(passengers){",
-					"    var ps = \"[\";",
+					"    var ps = [];",
 					"    for(var i=0; i<passengers.length; i++){",
-					"        var p = passengers[i]",
-					"        ps += '{\\",
-					"            \"passenger\": {\\",
-					"                \"birthdate\": \"' + p.passenger.birthdate + '\",\\",
-					"              \"contactInfoRef\": \"' + p.passenger.contactInfoRef + '\",\\",
-					"              \"emailContact\": \"' + p.passenger.emailContact + '\",\\",
-					"              \"gender\": \"' + p.passenger.gender + '\",\\",
-					"              \"nameGiven\": \"' + p.passenger.nameGiven + '\",\\",
-					"              \"nameTitle\": \"' + p.passenger.nameTitle + '\",\\",
-					"              \"passengerType\": \"' + p.passenger.passengerType + '\",\\",
-					"              \"phone\": {\\",
-					"                \"areaCode\": \"34\",\\",
-					"                \"countryCode\": \"34\",\\",
-					"                \"number\": \"' + p.passenger.phone.number + '\"\\",
-					"            },\\",
-					"            \"surname\": \"' + p.passenger.surname + '\"\\",
-					"        },\\",
-					"            \"travelerReference\": \"' + p.travelerReference + '\"\\",
-					"        },';",
+					"        p = passengers[i];",
+					"        ps.push({travelerReference:  p.travelerReference})",
 					"    }",
-					"    ps = ps.slice(0, -1) + \"]\";",
-					"    postman.setEnvironmentVariable(\"passengers_info_sa\", ps);",
+					"    postman.setEnvironmentVariable(\"passengers_info_sa\", JSON.stringify(ps));",
 					"}",
 					"function setOVPassengersRefs(passengers){",
 					"    var ps = [];",
 					"    for(var i=0; i<passengers.length; i++){",
 					"        p = {",
 					"            \"pass_ref\": passengers[i].travelerReference,",
-					"            \"pass_type\": passengers[i].passenger.passengerType,",
+					"            \"pass_type\": passengers[i].passengerType,",
 					"        };",
 					"        ps.push(p);",
 					"    }",
@@ -6737,13 +7817,12 @@
 					"",
 					"function getFirstPassengerOfType(passengers, passType){",
 					"    for(var i=0; i<passengers.length; i++){",
-					"        if (passengers[i].passenger.passengerType == passType) {",
+					"        if (passengers[i].passengerType == passType) {",
 					"            return passengers[i];",
 					"        }",
 					"    }",
 					"    return null;",
 					"}",
-					"",
 					"function setOVPassengersRefsSplit(passengers){",
 					"    var ps = [];",
 					"    var fawi = getFirstAdultWithInfant(passengers);",
@@ -6823,7 +7902,6 @@
 					"",
 					"",
 					"",
-					"",
 					"/***********************************************/",
 					"/***********************************************/",
 					"/***********************************************/",
@@ -6859,7 +7937,7 @@
 					"    }",
 					"}",
 					"function checkSeatAvailability(res){",
-					"    checkTracerIDs(true);",
+					"    checkTracerIDs();",
 					"    checkStatus();",
 					"}",
 					"function setTheSeatsForOC(res){",
@@ -6898,16 +7976,15 @@
 					"    }",
 					"}",
 					"function setTheSeatsForOChange(res){",
-					"    var segRefsXPass = getSegRefsPassQuantity(res.seatDisplay);",
+					"    // var segRefsXPass = getSegRefsPassQuantity(res.seatDisplay);",
 					"    var seatsToAdd = [];",
 					"    var usedLocations = [];",
+					"    var usedPassenger = [];",
 					"    for(var i=0; i<res.seatList.length; i++){",
 					"        var seat = res.seatList[i];",
-					"        if(segRefsXPass[seat.segment].length > 0 ",
-					"            && usedLocations.indexOf(seat.segment + \"_\" + seat.location.column + \"_\" + seat.location.row) === -1 ",
-					"            && notSpecialSeat(seat) ",
-					"            && matchTypePassenger(seat, segRefsXPass[seat.segment])) {",
-					"            var pass = segRefsXPass[seat.segment].pop();",
+					"        if(usedLocations.indexOf(seat.segment + \"_\" + seat.location.column + \"_\" + seat.location.row) === -1 ",
+					"            && usedPassenger.indexOf(seat.segment + \"_\" + seat.passengerRefs) === -1",
+					"            && notSpecialSeat(seat)) {",
 					"            var seatToAdd = {",
 					"                \"type\": \"seat\",",
 					"                \"seatLocation\": {",
@@ -6915,26 +7992,27 @@
 					"                    \"row\": seat.location.row",
 					"                },",
 					"                \"segmentReference\": seat.segment,",
-					"                \"travelerReference\": pass.pass_ref,",
+					"                \"travelerReference\": seat.passengerRefs,",
 					"                \"action\": \"Create\"",
 					"            };",
 					"            seatsToAdd.push(seatToAdd);",
 					"            usedLocations.push(seat.segment + \"_\" + seat.location.column + \"_\" + seat.location.row);",
+					"            usedPassenger.push(seat.segment + \"_\" + seat.passengerRefs);",
 					"        }",
 					"    }",
 					"    postman.setEnvironmentVariable(\"selected_seats\", JSON.stringify(seatsToAdd));",
 					"}",
-					"function getSegRefsPassQuantity(seatDisplay){",
-					"    var passRefs = JSON.parse(postman.getEnvironmentVariable(\"passengers_refs_sa\"));",
-					"    var segRefsXPass = {};",
-					"    for(var i=0; i<seatDisplay.length; i++){",
-					"        segRefsXPass[seatDisplay[i].segment] = [];",
-					"        for(var j=0; j<passRefs.length; j++){",
-					"            segRefsXPass[seatDisplay[i].segment].push(passRefs[j]);",
-					"        }",
-					"    }",
-					"    return segRefsXPass;",
-					"}",
+					"// function getSegRefsPassQuantity(seatDisplay){",
+					"//     var passRefs = JSON.parse(postman.getEnvironmentVariable(\"passengers_refs_sa\"));",
+					"//     var segRefsXPass = {};",
+					"//     for(var i=0; i<seatDisplay.length; i++){",
+					"//         segRefsXPass[seatDisplay[i].segment] = [];",
+					"//         for(var j=0; j<passRefs.length; j++){",
+					"//             segRefsXPass[seatDisplay[i].segment].push(passRefs[j]);",
+					"//         }",
+					"//     }",
+					"//     return segRefsXPass;",
+					"// }",
 					"function notSpecialSeat(seat){",
 					"    for(var i=0; i<seat.characteristics.length; i++){",
 					"        if(seat.characteristics[i].code.indexOf(\"O\") !== -1){",
@@ -6994,7 +8072,7 @@
 					"    }",
 					"}",
 					"function checkServiceList(res){",
-					"    checkTracerIDs(true);",
+					"    checkTracerIDs();",
 					"    checkStatus();",
 					"}",
 					"function setTheServicesForOC(res){",
@@ -7018,7 +8096,7 @@
 					"        services.push([])",
 					"        for(var s in segmentsServices) {",
 					"            services[i].push({",
-					"                \"id\": segmentsServices[s].serviceID,",
+					"                \"id\": segmentsService[s].serviceID,",
 					"                \"segmentReference\": s",
 					"            })",
 					"        }",
@@ -7153,15 +8231,25 @@
 		},
 		{
 			"key": "AG-Authorization",
-			"value": "2cdff71c36bd232f2b3d6838f6ca8ce1"
+			"value": ""
 		},
 		{
 			"key": "authorization-local",
-			"value": "b7ac4be9e48e83ae34c7bf1dc2fbd5fb"
+			"value": "de68ce8c71250fa6af18555b9cbe8ad2",
+			"disabled": true
 		},
 		{
 			"key": "authorization-staging",
-			"value": "2cdff71c36bd232f2b3d6838f6ca8ce1"
+			"value": "7c265b416c05d0ed7e739454302a76bd",
+			"disabled": true
+		},
+		{
+			"key": "version_url",
+			"value": "v1.2"
+		},
+		{
+			"key": "base_url_helper",
+			"value": "sandbox"
 		}
 	]
 }
