@@ -13086,23 +13086,23 @@
 		},
 		{
 			"key": "AG-Authorization",
-			"value": "7c265b416c05d0ed7e739454302a76bd"
+			"value": ""
 		},
 		{
 			"key": "authorization-local",
-			"value": "7c265b416c05d0ed7e739454302a76bd"
+			"value": ""
 		},
 		{
 			"key": "authorization-staging",
-			"value": "7c265b416c05d0ed7e739454302a76bd"
+			"value": ""
 		},
 		{
 			"key": "authorization-sandbox",
-			"value": "f7a6a76315851b17652422d632d4ca50"
+			"value": ""
 		},
 		{
 			"key": "authorization-prod",
-			"value": "550aa3a8188a6e37e5a9813466c42e29"
+			"value": ""
 		},
 		{
 			"key": "version_url",
