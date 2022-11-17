@@ -16395,7 +16395,7 @@
 		},
 		{
 			"key": "base_url_helper",
-			"value": "staging"
+			"value": "sandbox"
 		},
 		{
 			"key": "flight_date_0",
