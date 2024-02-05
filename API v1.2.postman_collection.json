@@ -67,6 +67,11 @@
 										"key": "AG-Request-Timeout",
 										"value": "1000",
 										"type": "text"
+									},
+									{
+										"key": "AG-Search-Mode",
+										"value": "combine_same_fares_only",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -118,7 +123,8 @@
 									},
 									{
 										"key": "AG-Providers",
-										"value": "{{AG-Provider}}"
+										"value": "{{AG-Provider}}",
+										"disabled": true
 									},
 									{
 										"key": "Authorization",
@@ -126,11 +132,13 @@
 									},
 									{
 										"key": "AG-Session-ID",
-										"value": "{{AG-Session-ID}}"
+										"value": "{{AG-Session-ID}}",
+										"disabled": true
 									},
 									{
 										"key": "AG-Request-ID",
-										"value": "{{AG-Request-ID}}"
+										"value": "{{AG-Request-ID}}",
+										"disabled": true
 									},
 									{
 										"key": "AG-Trace",
@@ -291,11 +299,13 @@
 									{
 										"key": "AG-Consumer",
 										"value": "{{AG-Consumer}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									},
 									{
 										"key": "AG-Providers",
-										"value": "{{AG-Provider}}"
+										"value": "{{AG-Provider}}",
+										"disabled": true
 									},
 									{
 										"key": "Authorization",
@@ -303,19 +313,23 @@
 									},
 									{
 										"key": "AG-Session-ID",
-										"value": "{{AG-Session-ID}}"
+										"value": "{{AG-Session-ID}}",
+										"disabled": true
 									},
 									{
 										"key": "AG-Request-ID",
-										"value": "{{AG-Request-ID}}"
+										"value": "{{AG-Request-ID}}",
+										"disabled": true
 									},
 									{
 										"key": "AG-Trace",
-										"value": "{{AG-Trace}}"
+										"value": "{{AG-Trace}}",
+										"disabled": true
 									},
 									{
 										"key": "NDC-Method",
-										"value": "OrderRetrieve"
+										"value": "OrderRetrieve",
+										"disabled": true
 									},
 									{
 										"key": "AG-No-Cache-OR",
@@ -16486,6 +16500,78 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "Remarks",
+					"item": [
+						{
+							"name": "OrderRemarks, on hold booking (Not visible on BP)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"type": "text",
+										"value": "{{AG-Consumer}}"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderRemarks"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"{{AGW_ID}}\",\n    \"result\": \"RM *AIRGATEWAY\\nAI AN 654\\n\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderRemarks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderRemarks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -16963,6 +17049,557 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "AS-OP-OC-OCN-Seen",
+					"item": [
+						{
+							"name": "AirShopping",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}",
+										"type": "text"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "AirShopping",
+										"type": "text"
+									},
+									{
+										"key": "AG-Per-Provider-Limit",
+										"value": "20",
+										"type": "text"
+									},
+									{
+										"key": "AG-No-Cache",
+										"value": "true",
+										"type": "text"
+									},
+									{
+										"key": "AG-Request-Timeout",
+										"value": "1000",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"postman_help\": {\r\n    \"method\": \"AirShopping\",\r\n    \"type\": \"simple_flight\"\r\n  }, \r\n  \"metadata\": {\r\n    \"country\": \"DE\",\r\n    \"currency\": \"EUR\",\r\n    \"locale\": \"de_DE\"\r\n  },\r\n  \"originDestinations\": {{origin_destinations}},\r\n  \"preferences\": {\r\n    \"cabin\": [\"7\"],\r\n    \"nonStop\": false\r\n  },\r\n  \"passengers\":  [\r\n        {\r\n            \"travelerReference\": \"ITT0\",\r\n            \"passengerType\": \"ITT\",\r\n            \"infantReference\": \"ITF0\"\r\n        },\r\n        {\r\n            \"travelerReference\": \"ITT1\",\r\n            \"passengerType\": \"ITT\",\r\n            \"infantReference\": \"ITF1\"\r\n        },\r\n        {\r\n            \"travelerReference\": \"ITF0\",\r\n            \"passengerType\": \"ITF\"\r\n        },\r\n        {\r\n            \"travelerReference\": \"ITF1\",\r\n            \"passengerType\": \"ITF\"\r\n            \r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/AirShopping",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"AirShopping"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OfferPrice",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OfferPrice"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"offerID\": \"{{AG-OfferID}}\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OfferPrice",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OfferPrice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OrderCreate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "d66ce7f11c974f7eba9f9360137ab158",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-App",
+										"value": " v1.0.0 (27d8c507)",
+										"type": "text"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderCreate",
+										"type": "text"
+									},
+									{
+										"key": "accept",
+										"value": " application/json, text/plain, */*",
+										"type": "text"
+									},
+									{
+										"key": "accept-encoding",
+										"value": " gzip, deflate, br",
+										"type": "text"
+									},
+									{
+										"key": "content-type",
+										"value": " application/json",
+										"type": "text"
+									},
+									{
+										"key": "accept-language",
+										"value": " es-ES,es;q=0.9,en;q=0.8,fr;q=0.7,ca;q=0.6",
+										"type": "text"
+									},
+									{
+										"key": "NDC-Payment-Method",
+										"value": "card",
+										"type": "text"
+									},
+									{
+										"key": "AG-HR-FOP-Remark",
+										"value": "remark_value_from_HR",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shoppingResponseID\": \"{{ShoppingResponseID}}\",\n    \"passengers\": {{passengers_info}},\n    \"_payment\": {{payment_info}}\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderCreate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderCreate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OrderRetrieve",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderRetrieve"
+									},
+									{
+										"key": "AG-No-Cache-OR",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Ag-OrderRetrieve-Mode",
+										"value": "airline",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"{{AGW_ID}}\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderRetrieve",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderRetrieve"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OCN-Seen",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderRetrieve"
+									},
+									{
+										"key": "AG-No-Cache-OR",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Ag-OrderRetrieve-Mode",
+										"value": "airline",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"AGW-27P89PPB3K\",\n  \"notificationIds\": [1]\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderNotificationSeenToggle",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderNotificationSeenToggle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OrderReshopRefund",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"type": "text",
+										"value": "{{AG-Consumer}}"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderCancel"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderReshopRefund",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderReshopRefund"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OrderCancel",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "AG-Consumer",
+										"value": "{{AG-Consumer}}",
+										"type": "text"
+									},
+									{
+										"key": "AG-Providers",
+										"value": "{{AG-Provider}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AG-Authorization}}"
+									},
+									{
+										"key": "AG-Session-ID",
+										"value": "{{AG-Session-ID}}"
+									},
+									{
+										"key": "AG-Request-ID",
+										"value": "{{AG-Request-ID}}"
+									},
+									{
+										"key": "AG-Trace",
+										"value": "{{AG-Trace}}"
+									},
+									{
+										"key": "NDC-Method",
+										"value": "OrderCancel"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"{{AGW_ID}}\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/{{version_url}}/OrderCancel",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{version_url}}",
+										"OrderCancel"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -16971,6 +17608,90 @@
 			"item": [
 				{
 					"name": "ItinShopping",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AG-Consumer",
+								"value": "{{AG-Consumer}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Providers",
+								"value": "*",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AG-Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "AG-Trace",
+								"value": "{{AG-Trace}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "AG-Session-ID",
+								"value": "{{AG-Session-ID}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "AG-Request-ID",
+								"value": "{{AG-Request-ID}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "NDC-Method",
+								"value": "ItinShopping",
+								"type": "text"
+							},
+							{
+								"key": "AG-Per-Provider-Limit",
+								"value": "20",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "AG-No-Cache",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "AG-Request-Timeout",
+								"value": "1000",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"itinerary\":[{\"arrival\":\"JFK\",\"date\":\"2024-02-14\",\"departure\":\"TBS\",\"flightNumbers\":[\"LH2559\",\"LH0410\"]},{\"arrival\":\"TBS\",\"date\":\"2024-02-21\",\"departure\":\"EWR\",\"flightNumbers\":[\"LH0413\",\"LH2558\"]}],\"metadata\":{\"country\":\"FR\",\"currency\":\"GEL\",\"locale\":\"fr_FR\"},\"passengers\":[{\"travelerReference\":\"ADT0\",\"passengerType\":\"ADT\"}],\"GDSPrice\":\"2.0.18\",\"originalRequest\":\"\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version_url}}/ItinShopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version_url}}",
+								"ItinShopping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ItinShopping with preferences",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -19110,23 +19831,23 @@
 		},
 		{
 			"key": "AG-Authorization",
-			"value": ""
+			"value": "f7a6a76315851b17652422d632d4ca50"
 		},
 		{
 			"key": "authorization-local",
-			"value": ""
+			"value": "7c265b416c05d0ed7e739454302a76bd"
 		},
 		{
 			"key": "authorization-staging",
-			"value": ""
+			"value": "7c265b416c05d0ed7e739454302a76bd"
 		},
 		{
 			"key": "authorization-sandbox",
-			"value": ""
+			"value": "f7a6a76315851b17652422d632d4ca50"
 		},
 		{
 			"key": "authorization-prod",
-			"value": ""
+			"value": "550aa3a8188a6e37e5a9813466c42e29"
 		},
 		{
 			"key": "version_url",
